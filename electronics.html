@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Calculadora de eficiencia energética para hogares inteligentes</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__text">
+      <h1>Calcule la eficiencia energética de su hogar</h1>
+      <p>Tome la iniciativa y resuelva el problema del consumo excesivo de energía</p>
+    </div>
+  </header>
+  <main>
+    {% block content %}
+    <h2 class="main__title">Especifique el número de dispositivos que utilizan electricidad:</h2>
+    <ul class="list" id="list">
+      <!-- Asignación #3 -->
+      <li class="list__item">
+        <a href='{{lights + "/4" }}'>
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>3-5 aparatos</span></a>
+      </li>
+      <li class="list__item">
+        <a href='{{lights + "/7" }}'>
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>6-8 aparatos</span></a>
+      </li>
+      <li class="list__item">
+        <a href='{{lights + "/9" }}'>
+          <img class="item__img" src="../static/img/battery.svg" alt="battery">
+          <span>10+ aparatos</span></a>
+      </li>
+      <li class="list__item">
+        <a href='{{lights + "/5" }}'>
+          <img class="item__img" src="data:image/png;base64,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" alt="battery">
+          <span>Idea ecologica</span></a>
+      </li>
+      <!--  -->
+    </ul>
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
