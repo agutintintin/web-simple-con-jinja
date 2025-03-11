@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>Calculadora de eficiencia energética para hogares inteligentes</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__text">
+      <h1>Calcule la eficiencia energética de su hogar</h1>
+      <p>Tome la iniciativa y resuelva el problema del consumo excesivo de energía.</p>
+    </div>
+  </header>
+  <main>
+    {% block content %}
+    <h2 class="main__title">Seleccione cuántas lámparas hay en su hogar:</h2>
+    <ul class="list" id="list">
+      <li class="list__item">
+        <a href='{{size + "/3" }}'>
+          <img class="item__img" src="../static/img/light.svg" alt="light">
+          <span>2-4 lámparas</span></a>
+      </li>
+      <!--Tarea #2 -->
+      <li class="list__item">
+        <a href='{{size + "/7" }}'> 
+          <img class="item__img" src="../static/img/light.svg" alt="light">
+          <span>4-6 lámparas</span></a>
+      </li>
+      <li class="list__item">
+        <a href='{{size + "/10" }}'>
+          <img class="item__img" src="../static/img/light.svg" alt="light">
+          <span>8+ lámparas</span></a>
+      </li>
+      <li class="list__item">
+        <a href='{{size + "/4" }}'>
+          <img class="item__img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKEAAACUCAMAAADMOLmaAAAAqFBMVEX///8AAABExDHw8PD8/Px4eHjl5eUsLCxfX18yMjKZmZlDQ0MvLy8hISHPz88dHR26uromJiZSUlK0tLSpqamKioqioqLIyMgQEBBmZmY8wibBwcH29vaSkpJvb28VFRWBgYHa2to6Ojrz/fFiyVFXw0ZKSkrl9OK55LN7z2+g3JUuvxHZ8NaJ0XzS7cz2+/XF6MBryFyX3oyu4KdKwDeN0IOk2poHswBmL9tAAAAHvElEQVR4nO1caXuqOhAmIoh6pIIbUlyqVqvY2sXT8///2Z0g1SQTllYCvc/j+02J8DL7DEFNu+GGG264QQXMrlk1hXQEBjGCqkmkQreIpVdNIhU3htfjxvB63BhejxvD63FjeD1+P8Ng/NsZaqP5qGoKvxa9Zq/Y8/0p9nya7hLSL/B8fULcgu21RQgp7q57cLZWYWeLMSE5pBjopmnqmW0ASJBMiqHFYpAuxeC+ZUwtd71eu9bUaN2n0KQSHBRP8KRouRTNkeEREZ4xkrd9fRUqPgGk6GGK9e6gEZNy1tZ0OrbaTvy5MbiXE1QiQYoJVnTQa1PxeR2rb+t6cIKu232rE33f7grq7qmxQZbikOMXictq2ZLF9sSKBMlxHKoleHKXS1qzXUphPEqKbPpoHN3Aw/mbkUoVn9C6WLlO6TpG+hTEnHYoqa97aClzkgv6rfhqD1SA44f01QCb6tqN1+mtIjNTOqgFOr16jpVBH8TYkHi1WtDgaOUdc5lWnoRULCjBQf4hVzAXgoByyGN3GvqecifmLveDQqdXpqK7cLFu1iLkQ5RiSe5iZ6t487Rd7ZbCl6BoT5Z7Cke9nWVRm92j7/vhTvwerHetjBYDcEs35XB9/xyGNQr/RTwGMX6ujNcZI480U+LgZlfzayf424Nw0GySmXo9L1Ld+OPxix+l+CQeBm9pqyRHAdXTNPHgZhsyBGv+Ea0YKw85OrhJoo5fWQFShK/iEhOEqHZqMkyuP5e7yEE4Ib6JEYfWwEqzH4iwkVBvHZ4FAUYUkRAfHLJWKcRRYrhYbkNMUOLOmsEW6cUDAppchJuVjGCt9m8vrnxID6dXQiekKT1wYCXovzG+ghKL1iREnZr7CbFiuWWj4PM78+mIfCXpJIXASAg1O5bgas9ZIkp9oGZDFUFzLR+pvXA2+PLBfvQ/xdW6S1xVT8ltTxoMN1ym+zisOBnKQqKyIqwrtyBOx2+HJy4u+o8bcX0/R/37Q0xIRxLK9qxSj/v6Gx+5sSHaHWVzkSlZSAyI8+OdYJQQbz7EH5iLlOLjOrRJG3fwG1Ze/lL7KzD0/4q/gCJdVQnmybLBJ+cm2uZYExhu0U9c4iliKMtXB0bJ/mqpPYn1g/8mYUiuJ6O7bQZx/CLEQgs5JT9pyzfEcIV+Y8UMTf4i38uFQ34mPY8ZjtHCV0aEjwdtj0owCcNxzHDOX+R7daPZYdGwY4ZYhkwwpF4r+olUy18ytB32Ik4BiUZmhxcz9GmRgKtYqacUYIe5GV7sDmIhCob062cJQ1W+DHEMDeRWZ4ZHKFb/YhniiB2oi4djSU45M6Sy2jwigpKsBzkFe1wxmBAHFSVnLdPO8wUTrB1R5WA7yvJyVzJuuHR43AfGUVAv1VNX29iSZvkz9o0Q0u9B7OhrUSIUAS2zqvoQamy0zeIrYvvgJy//JFpGSg4ssla2E1XSp8SVgr9dXuTJihDHGlNhn0JzoWiIceUQtSMoJ4PyUb9MzVDdXARufyF+Fxcze76I+BIhbpe1tNnU9XAlao6YvB00XHjJmhR6lypHxV3J3OYdrC+kSsYJJUTROipoVMUaCn1BmuLgZhNTwaVhiHpl6OebZKF0gCh7+roL/SMoeY8kuEPBOjqB2qdnkFORJR624buGzNCvSSQY+ZribfktSTR7+UdH6mzK82thDY3ZKYwSnoA3JJb+RKPekRPgFg1DKMDTGqoJ0otI9bQ8pzw/9LcSJ9YiR1PqyCfUp7KGChJ0SDt6Pwz9x8+9xEUooIWa5nmqfyWChdSWaFJ+//x82kvVGwFseFHKqyEjQmZYV9Dl4Xkrh+5M7ZCdQZ/gS9F4vUpQ7gmjQvcHZqCFH2ZDiyLpjBmMPMWblXhAWJvxFPfSzvgCqmKjBC/5Qp1uVxqyF4RaO4VhnU5ZBiUShEtOhE2EH2EaQ2oWk1IJami/CAQbScUfo1vqhqDuMDhftnNJLvvH8IgeM8YwO+dUEgyV5xSmy5hwOzI2r7gliTG4eLGk0ykYLWarje4SL3vrHIhwdnlQ1FW3B/YEfgdmToFwzZ24C7Rg9PnTg3DwyBPDIjOmGBqq9JqWqKJGrkGgx9eECqWI91HnG6aKg9Hkfd1XYojv3crJULAFyZmKwFDihT9kGEmxcIrS+/4pQxVSpO+n4Dj2Y4ZUisW/nyIJtD9nCFJU3pVSXMGwJEyTtt+wsNP2sqkGZNlZIwuzMnrkJNTH6L0ZGcZl164X0BkC+dNMA325Ru04LhXQUE2zJln6VOVkPQP1O+JlzxACj9xVpeYHL9dG+kG+QlcFfj9DfUY6OZZ1yKwyV5lST6mnw5xWGbGhDSBtIx0QkGZVKRkwWuQI2ItK37nWKYXOnyTQ98wU7inNA/omSM9MRtdT9zA5H6wsAnaVtRcgcMk6PV/U22Rd5d8a6e2swgXKH8UvAmTAzYrGENXd6oovLRprpRcuRqkvwUlQh5jtDFpJGDgQrysVIcRsJz1cE6fy/8gwx7SM7txh0HDdGP+Gv1Cj3X7PxugV37X/FD25NwxKfAaVBbA2rEzTUbYR8vuQbl4YlvA4PjceHNy134NgK6wLRdDxrNHrMjBKfciTjfpcEgnnFYdqAffWHUfvzir91f4sBPY9q2X7d/+T5A033HDD/xD/AfiZhikFHJREAAAAAElFTkSuQmCC" alt="light">
+          <span>Nuestro nuevo montaje electronico</span></a>
+      </li>
+    </ul>
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
